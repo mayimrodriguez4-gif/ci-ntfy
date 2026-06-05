@@ -1,0 +1,18 @@
+name: CI - Notificación ntfy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -d "🚀 Se hizo un push al repositorio en main" https://ntfy.sh/devops-itla
